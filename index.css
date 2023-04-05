@@ -59,34 +59,247 @@ body {
 /* Limita e centraliza a página usando 'wrap'. */
 
 #wrap {
-    background-color: beige;
+    position: relative;
     height: 100%;
     width: 100%;
     max-width: 1024px;
     margin: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Renderiza cabeçalho */
 #wrap>header {
-    background-color: rgb(250, 225, 189);
+    background-color: rgba(250, 224, 189, 0);
+
     margin: 0.5rem;
-    border-radius: 0.4rem;
+    border-radius: .35rem;
     display: flex;
+    align-items: center;
+    position: relative;
 }
 
 #wrap>header a {
-    font-size: 6rem;
+    font-size: 4rem;
     color: goldenrod;
     -webkit-text-stroke: 1px gold;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
+    text-decoration: none;
+}
+
+#wrap>header i {
+    display: block;
+}
+
+
+#wrap>header img {
+    width: 4rem;
 }
 
 #wrap>header h1 {
     margin: 0;
+    text-align: center;
+    letter-spacing: .25rem;
+    color: rgb(255, 255, 255)
+}
+
+#wrap>header h1 small {
+    display: block;
+    font-weight: normal;
+    font-size: .8rem;
+    letter-spacing: normal;
+
 }
 
 #wrap>header im {
     width: 4rem;
 }
 
+#wrap>nav {
+    background-color: rgba(250, 224, 189, 0);
 
+    border-radius: .35rem;
+    margin: 0 .5rem .5rem .5rem;
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+#wrap>nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: .8rem;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    transition: .2s;
+}
+
+#wrap>nav a:first-child {
+    margin-right: auto;
+}
+
+#wrap>nav a:hover {
+    background-color: rgba(245, 245, 245, 0.342);
+
+}
+
+#wrap>nav a i {
+    font-size: 2rem;
+    margin-bottom: .4rem;
+}
+
+/* Conteúdo */
+
+#wrap>main {
+    display: flex;
+    margin: 0.5rem;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+#wrap>main>article {
+    background-color: rgba(250, 223, 189, 0.808);
+    border-radius: .35rem;
+    border: 1px dashed grey;
+    flex-grow: 1;
+}
+
+#wrap>main>aside {
+    background-color: rgba(250, 223, 189, 0.808);
+    margin-top: .5rem;
+    border-radius: .35rem;
+    border: 1px dashed gray;
+}
+
+/* Rodapé */
+
+#wrap>footer {
+    background-color: rgba(250, 223, 189, 0.808);
+    margin: .5rem;
+    border-radius: .35rem;
+    border: 1px dotted grey;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: gray;
+}
+
+.footer-top div {
+    text-align: center;
+    color: black;
+}
+
+.footer-top a {
+    color: whitesmoke;
+    font-size: 1.5rem;
+    padding: .25rem;
+}
+
+.footer-top a:hover {
+    background-color: rgba(245, 245, 245, 0.342);
+}
+
+.footer-bottom {
+    display: flex;
+    color: black;
+    justify-content: space-around;
+}
+
+.footer-bottom h4 {
+    margin: .5rem 0;
+}
+
+.footer-bottom ul {
+    list-style: none;
+    padding: 0;
+    line-height: 1.7rem;
+    color: whitesmoke;
+}
+
+.footer-bottom a {
+    color: darkcyan;
+}
+
+.footer-bottom a:hover {
+    color: #929292;
+    text-decoration: none;
+}
+
+.nbsp {
+    height: .1px;
+    margin: 0;
+    border: 1px solid transparent;
+}
+
+
+/***********************/
+/* Em larguras maiores */
+/***********************/
+
+
+@media screen and (min-width:575px) {
+
+    /* Menu principal */
+
+    #wrap>nav {
+        justify-content: space-between;
+    }
+
+    #wrap>nav a:first-child {
+        margin-right: 0;
+    }
+
+    #wrap>nav a {
+        flex-direction: row;
+    }
+
+    #wrap>nav a i {
+        font-size: 1.2rem;
+        margin-bottom: 0;
+        margin-right: .5rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    #wrap>main {
+        flex-direction: row;
+    }
+
+    #wrap>main>aside {
+        margin-top: 0;
+        margin-left: .5rem;
+        min-width: 220px;
+        max-width: 220px;
+    }
+
+}
+
+#gadgets {
+    background-color: black;
+    position: absolute;
+    z-index: 100;
+    right: 0;
+    top: 100px;
+    border-radius: .35rem 0 0 .35rem;
+
+}
+
+#gadgets ul {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+
+}
+#gadgets a {
+    color: whitesmoke;
+    font-size: 2rem;
+}
+#gadgets span {
+    color: whitesmoke;
+    margin-left: 2rem;
+}
