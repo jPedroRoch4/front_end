@@ -163,6 +163,7 @@ body {
     border-radius: .35rem;
     border: 1px dashed grey;
     flex-grow: 1;
+    padding: 0 1rem;
 }
 
 #wrap>main>aside {
@@ -170,6 +171,7 @@ body {
     margin-top: .5rem;
     border-radius: .35rem;
     border: 1px dashed gray;
+    padding: 0 1rem;
 }
 
 /* Rodapé */
@@ -178,7 +180,7 @@ body {
     background-color: rgba(250, 223, 189, 0.808);
     margin: .5rem;
     border-radius: .35rem;
-    border: 1px dotted grey;
+    border: 1px dashed grey;
 }
 
 .footer-top {
@@ -246,7 +248,7 @@ body {
     /* Menu principal */
 
     #wrap>nav {
-        justify-content: space-between;
+        justify-content: space-around;
     }
 
     #wrap>nav a:first-child {
