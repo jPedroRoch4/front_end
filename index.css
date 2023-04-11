@@ -50,7 +50,7 @@ body {
 
     background-attachment: fixed;
     background-color: steelblue;
-    background-image: url("/img/background01.jpg");
+    background-image: url("/img/background02.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -117,7 +117,6 @@ body {
 
 #wrap>nav {
     background-color: rgba(250, 224, 189, 0);
-
     border-radius: .35rem;
     margin: 0 .5rem .5rem .5rem;
     display: flex;
@@ -161,7 +160,6 @@ body {
 #wrap>main>article {
     background-color: rgba(250, 223, 189, 0.808);
     border-radius: .35rem;
-    border: 1px dashed grey;
     flex-grow: 1;
     padding: 0 1rem;
 }
@@ -170,7 +168,6 @@ body {
     background-color: rgba(250, 223, 189, 0.808);
     margin-top: .5rem;
     border-radius: .35rem;
-    border: 1px dashed gray;
     padding: 0 1rem;
 }
 
@@ -180,7 +177,6 @@ body {
     background-color: rgba(250, 223, 189, 0.808);
     margin: .5rem;
     border-radius: .35rem;
-    border: 1px dashed grey;
 }
 
 .footer-top {
