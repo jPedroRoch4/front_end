@@ -1,3 +1,61 @@
 /*
 Folhas de estilo
 */
+
+
+#cForm {
+    display: table;
+    margin: auto;
+    width: 100%;
+    max-width: 500px;
+}
+
+#cForm label {
+    display: block;
+    padding: 0 0 .25rem .25rem;
+}
+
+#cForm input,
+#cForm textarea,
+#cForm button {
+    font-family: inherit;
+    font-size: inherit;
+    border-radius: .3rem;
+}
+
+#cForm input,
+#cForm textarea {
+    border: 1px solid orange;
+    border-bottom: 3px solid orange;
+    padding: .25rem .3rem;
+    width: 100%;
+}
+
+#cForm textarea {
+    height: 6rem;
+    resize: vertical;
+}
+
+#cForm button {
+    padding: .25rem .3rem;
+    border: none;
+    background-image: linear-gradient(gold, goldenrod);
+}
+#cForm button:hover {
+    background-image: linear-gradient(steelblue, lightsteelblue);
+}
+#cForm small {
+    color: grey;
+}
+
+#cForm input:valid,
+#cForm textarea:valid {
+    border: 1px solid green;
+    border-bottom: 3px solid green;
+    background-color: rgb(232, 240, 254);
+ }
+
+ #cForm:invalid button {
+    background-image: linear-gradient(rgb(182, 175, 175), rgb(109, 107, 107));
+    pointer-events: none;
+ }

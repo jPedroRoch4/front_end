@@ -22,7 +22,10 @@ body {
     width: 100%;
     height: 100%;
     padding: 0;
-    margin: 0;
+    margin: 0;  
+    font-family: Roboto, sans-serif;
+    /* Criamos uma nova unidade chamada "rem" → 1 rem = 16px */
+    font-size: 16px;
 }
 
 a {
@@ -36,18 +39,10 @@ a:hover {
 
 }
 
-/* Importa algumas bibliotecas externas. */
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 
-/*Define a fonte e o fundo padrão da página */
+/*Define o fundo padrão da página */
 
-html,
 body {
-    font-family: Roboto, sans-serif;
-    /* Criamos uma nova unidade chamada "rem" → 1 rem = 16px */
-    font-size: 16px;
-
     background-attachment: fixed;
     background-color: steelblue;
     background-image: url("/img/background02.jpg");
@@ -155,7 +150,7 @@ body {
     margin: 0.5rem;
     flex-grow: 1;
     flex-direction: column;
-}
+} 
 
 #wrap>main>article {
     background-color: rgba(250, 223, 189, 0.808);
@@ -219,7 +214,7 @@ body {
 }
 
 .footer-bottom a {
-    color: darkcyan;
+    color: rgb(14, 105, 105);
 }
 
 .footer-bottom a:hover {
