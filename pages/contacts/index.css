@@ -43,6 +43,7 @@ Folhas de estilo
 }
 #cForm button:hover {
     background-image: linear-gradient(steelblue, lightsteelblue);
+    
 }
 #cForm small {
     color: grey;
