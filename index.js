@@ -25,9 +25,10 @@
  * Algumas configurações do aplicativo.
  * Dica: você pode acrescentar novas configurações aqui se precisar.
  **/
- var app = {
+var app = {
     siteName: 'FrontEndeiros',
-    siteSlogan: 'Programando para o futuro'
+    siteSlogan: 'Programando para o futuro',
+    apiContactsURL: 'http://localhost:3000/contacts'
 }
 
 /**
