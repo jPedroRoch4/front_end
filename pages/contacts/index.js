@@ -9,7 +9,7 @@ function myContacts() {
      **/
     changeTitle('Faça contato')
 
-    $(document).on('submit', '#cForm', sendContact)
+    $('#cForm').submit(sendContact)
 
 }
 
