@@ -22,7 +22,7 @@ body {
     width: 100%;
     height: 100%;
     padding: 0;
-    margin: 0;  
+    margin: 0;
     font-family: Roboto, sans-serif;
     /* Criamos uma nova unidade chamada "rem" → 1 rem = 16px */
     font-size: 16px;
@@ -143,6 +143,14 @@ body {
     margin-bottom: .4rem;
 }
 
+#wrap>nav a img {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    margin-bottom: .4rem;
+    border-radius: 50%;
+}
+
 /* Conteúdo */
 
 #wrap>main {
@@ -150,7 +158,7 @@ body {
     margin: 0.5rem;
     flex-grow: 1;
     flex-direction: column;
-} 
+}
 
 #wrap>main>article {
     background-color: rgba(250, 223, 189, 0.808);
@@ -255,6 +263,13 @@ body {
         margin-bottom: 0;
         margin-right: .5rem;
     }
+
+    #wrap>nav a img {
+        width: 1.2rem;
+        height: 1.2rem;
+        margin-bottom: 0;
+        margin-right: .5rem;
+    }
 }
 
 @media screen and (min-width: 768px) {
@@ -288,10 +303,12 @@ body {
     padding: 0;
 
 }
+
 #gadgets a {
     color: whitesmoke;
     font-size: 2rem;
 }
+
 #gadgets span {
     color: whitesmoke;
     margin-left: 2rem;

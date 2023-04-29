@@ -60,6 +60,25 @@ $(document).ready(myApp)
  **/
 function myApp() {
 
+    // Monitora status de autenticação do usuário
+    firebase.auth().onAuthStateChanged((user) => {
+        console.log(user)
+        // Se o usuário está logado...
+        if (user) {
+
+            // Mostra a imagem do usuário e o link de perfil.
+            $('#navUser').html(`<img src="${user.photoURL}" alt="${user.displayName}" referrerpolicy="no-referrer"><span>Perfil</span>`)
+            $('#navUser').attr('href', 'profile')
+
+            // Se não tem logados...
+        } else {
+
+            // Mostra o ícone de usuário e o link de login.
+            $('#navUser').html(`<i class="fa-solid fa-user fa-fw"></i><span>Login</span>`)
+            $('#navUser').attr('href', 'login')
+        }
+    });
+
     /**
      * IMPORTANTE!
      * Para que o roteamento funcione corretamente no "live server", é 
@@ -88,7 +107,22 @@ function myApp() {
      **/
     $(document).on('click', 'a', routerLink)
 
+
 }
+
+function fbLogin() {
+
+    // Faz login do usuário usando o Firebase Authentication
+    firebase.auth().signInWithPopup(provider)
+    .then(() => {
+          loadpage('home')
+    })
+  
+
+}
+
+
+
 
 /**
  * Função que processa o clique em um link.
@@ -130,6 +164,14 @@ function routerLink() {
     )
         // Devolve o controle para o HTML.
         return true
+
+    /**
+     * Se clicou no link para 'login', executa a função de login.
+     */
+    if (href == 'login') {
+        fbLogin()
+        return false
+    }
 
     /**
      * Carrega a rota solicitada.
@@ -310,11 +352,9 @@ function getAge(sysDate) {
     var age = tYear - pYear
 
     //Verificar o mês e o dia.
-    if(pMonth > tMonth) age --
-    else if(pMonth == tMonth && pDay > tDay) age --
+    if (pMonth > tMonth) age--
+    else if (pMonth == tMonth && pDay > tDay) age--
 
     // Retona idade.
     return age
-
-
 }
