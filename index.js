@@ -30,9 +30,10 @@ var app = {
     siteName: 'FrontEndeiros',
     siteSlogan: 'Programando para o futuro',
     apiContactsURL: apiBaseURL + 'contacts',
-    apiArticlesURL: apiBaseURL + 'articles?_sort=date&_order=desc',
+    apiArticlesURL: apiBaseURL + 'articles?_sort=date&_order=desc&status=on',
     apiArticleURL: apiBaseURL + 'articles/',
-    apiUserURL: apiBaseURL + 'users/'
+    apiUserURL: apiBaseURL + 'users/',
+    apiCommentURL: apiBaseURL + 'comments?_sort=date&_order=desc&status=on'
 }
 
 /**
@@ -62,7 +63,7 @@ function myApp() {
 
     // Monitora status de autenticação do usuário
     firebase.auth().onAuthStateChanged((user) => {
-        console.log(user)
+
         // Se o usuário está logado...
         if (user) {
 
@@ -86,17 +87,17 @@ function myApp() {
      **/
 
     // Verifica se o 'localStorage' contém uma rota.
-    if (localStorage.path == undefined) {
+    if (sessionStorage.path == undefined) {
 
         // Se não contém, aponta a rota 'home'.
-        localStorage.path = 'home'
+        sessionStorage.path = 'home'
     }
 
     // Armazena a rota obtida em 'path'.        
-    var path = localStorage.path
+    var path = sessionStorage.path
 
     // Apaga o 'localStorage', liberando o recurso.
-    delete localStorage.path
+    delete sessionStorage.path
 
     // Carrega a página solicitada pela rota.
     loadpage(path)
@@ -107,22 +108,15 @@ function myApp() {
      **/
     $(document).on('click', 'a', routerLink)
 
-
 }
 
+// Faz login do usuário usando o Firebase Authentication
 function fbLogin() {
-
-    // Faz login do usuário usando o Firebase Authentication
     firebase.auth().signInWithPopup(provider)
-    .then(() => {
-          loadpage('home')
-    })
-  
-
+        .then(() => {
+            loadpage('home')
+        })
 }
-
-
-
 
 /**
  * Função que processa o clique em um link.
@@ -277,6 +271,13 @@ function loadpage(page, updateURL = true) {
 
         })
 
+        // Se ocorreu falha em carregar o documento...
+        .catch(() => {
+
+            // Carrega a página de erro 404 sem atualizar a rota.
+            loadpage('e404', false)
+        })
+
     /**
     * Rola a tela para o início, útil para links no final da página.
     * Referências:
@@ -332,29 +333,28 @@ function changeTitle(title = '') {
 }
 
 /**
- * Calcula idade com base na data (System Date)
- */
+ * Calcula a idade com base na data (system date).
+ **/
 function getAge(sysDate) {
-    //Obtendo partes da data atual.
-
+    // Obtendo partes da data atual.
     const today = new Date()
     const tYear = today.getFullYear()
     const tMonth = today.getMonth() + 1
     const tDay = today.getDate()
 
-    //Obtendo partes da data orginal.
+    // Obtebdo partes da data original.
     const parts = sysDate.split('-')
     const pYear = parts[0]
     const pMonth = parts[1]
     const pDay = parts[2]
 
-    //Calcula a idade pelo ano.
+    // Calcula a idade pelo ano.
     var age = tYear - pYear
 
-    //Verificar o mês e o dia.
+    // Verificar o mês e o dia.
     if (pMonth > tMonth) age--
     else if (pMonth == tMonth && pDay > tDay) age--
 
-    // Retona idade.
+    // Retorna a idade.
     return age
 }
