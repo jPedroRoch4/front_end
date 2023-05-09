@@ -76,7 +76,7 @@
       "thumbnail": "https://picsum.photos/200",
       "resume": "Aprenda a fazer alguma coisa que deve ser feita por quem sabe.",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean faucibus justo nibh, sed rutrum neque feugiat ac.",
-      "views": 0,
+      "views": "6",
       "status": "on",
       "id": 1
     },
@@ -98,7 +98,7 @@
       "thumbnail": "https://picsum.photos/202",
       "resume": "Esse artigo ensina como fazer um artigo que ensina alguma coisa.",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean faucibus justo nibh, sed rutrum neque feugiat ac.",
-      "views": 0,
+      "views": "3",
       "status": "on",
       "id": 3
     },
@@ -109,7 +109,7 @@
       "thumbnail": "https://picsum.photos/199",
       "resume": "conheça o produto mais produzido na produção produtiva",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean faucibus justo nibh, sed rutrum neque feugiat ac.",
-      "views": 0,
+      "views": "11",
       "status": "on",
       "id": 4
     }
@@ -130,6 +130,72 @@
       "content": "Não é possível que este comentário esteja comentando.",
       "status": "on",
       "id": 2
+    },
+    {
+      "name": "João Pedro Rocha",
+      "photo": "https://lh3.googleusercontent.com/a/AGNmyxZm0HwAbElfrcUo7mgIA0OEbFjuhc94p7iTIfNG=s96-c",
+      "email": "jpedro.devops@gmail.com",
+      "uid": "hbafloqP1FORF6DgPDvkLPXrsM23",
+      "article": "4",
+      "content": "Comentário fake para testes",
+      "date": "2023-05-08 21:34:10",
+      "status": "on",
+      "id": 3
+    },
+    {
+      "name": "João Pedro Rocha",
+      "photo": "https://lh3.googleusercontent.com/a/AGNmyxZm0HwAbElfrcUo7mgIA0OEbFjuhc94p7iTIfNG=s96-c",
+      "email": "jpedro.devops@gmail.com",
+      "uid": "hbafloqP1FORF6DgPDvkLPXrsM23",
+      "article": "4",
+      "content": "Comentário fake para testes 2",
+      "date": "2023-05-08 21:34:15",
+      "status": "on",
+      "id": 4
+    },
+    {
+      "name": "João Pedro Rocha",
+      "photo": "https://lh3.googleusercontent.com/a/AGNmyxZm0HwAbElfrcUo7mgIA0OEbFjuhc94p7iTIfNG=s96-c",
+      "email": "jpedro.devops@gmail.com",
+      "uid": "hbafloqP1FORF6DgPDvkLPXrsM23",
+      "article": "3",
+      "content": "Comentário fake para testes",
+      "date": "2023-05-08 23:50:00",
+      "status": "on",
+      "id": 5
+    },
+    {
+      "name": "João Pedro Rocha",
+      "photo": "https://lh3.googleusercontent.com/a/AGNmyxZm0HwAbElfrcUo7mgIA0OEbFjuhc94p7iTIfNG=s96-c",
+      "email": "jpedro.devops@gmail.com",
+      "uid": "hbafloqP1FORF6DgPDvkLPXrsM23",
+      "article": "1",
+      "content": "Seeeeeeeeeeeeeeeexo no vidigal",
+      "date": "2023-05-08 23:51:19",
+      "status": "on",
+      "id": 6
+    },
+    {
+      "name": "João Pedro Rocha",
+      "photo": "https://lh3.googleusercontent.com/a/AGNmyxZm0HwAbElfrcUo7mgIA0OEbFjuhc94p7iTIfNG=s96-c",
+      "email": "jpedro.devops@gmail.com",
+      "uid": "hbafloqP1FORF6DgPDvkLPXrsM23",
+      "article": "1",
+      "content": "Seeeeeeeeeeeeeeeexo no vidigal",
+      "date": "2023-05-08 23:51:30",
+      "status": "on",
+      "id": 7
+    },
+    {
+      "name": "João Pedro Rocha",
+      "photo": "https://lh3.googleusercontent.com/a/AGNmyxZm0HwAbElfrcUo7mgIA0OEbFjuhc94p7iTIfNG=s96-c",
+      "email": "jpedro.devops@gmail.com",
+      "uid": "hbafloqP1FORF6DgPDvkLPXrsM23",
+      "article": "1",
+      "content": "22222",
+      "date": "2023-05-08 23:51:46",
+      "status": "on",
+      "id": 8
     }
   ]
 }
