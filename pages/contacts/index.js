@@ -18,6 +18,10 @@ function myContacts() {
      **/
     changeTitle('Faça contato')
 
+
+    // Monitora status de autenticação do usuário
+    firebase.auth().onAuth
+
     /**
      * Promise do formulário de contatos.
      * Quando o formulário for enviado (onsubmit), executa a função
