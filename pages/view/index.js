@@ -1,57 +1,46 @@
 $(document).ready(myView)
 
 function myView() {
-    // constante que contém o id do artigo.
+
     const articleId = parseInt(sessionStorage.article)
 
     if (isNaN(articleId)) loadpage('e404')
-    // busca os artigos do usuário na API
+
     $.get(app.apiBaseURL + 'articles', { id: articleId, status: 'on' })
-
-
         .done((data) => {
-// Caso venham artigos diferentes de 1 id epecífico, gera a página de erro.
             if (data.length != 1) loadpage('e404')
-            // artData armazena um artigo presente em data
             artData = data[0]
             $('#artTitle').html(artData.title)
             $('#artContent').html(artData.content)
-            // Faz a atualizações de views.
             updateViews(artData)
-            // Muda o nome da página.
             changeTitle(artData.title)
-            //Obtém os dados do autor.
-            getAuthorData(artData)
-            // Obtém os artigos do autor.
+            getAuthor(artData)
             getAuthorArticles(artData, 5)
-            // Gera um formulário para o usuário caso esteja logado.
             getUserCommentForm(artData)
-            // Pega todos os comentários do artigo.
             getArticleComments(artData, 999)
         })
-
         .fail((error) => {
-            // Caso não tenha artigos, carrega um PopUp e a página de erro.
             popUp({ type: 'error', text: 'Artigo não encontrado!' })
             loadpage('e404')
         })
 
 }
-// Obtém os dados do autor. 
-function getAuthorData(artData) {
+
+function getAuthor(artData) {
     $.get(app.apiBaseURL + 'users/' + artData.author)
         .done((userData) => {
 
-            // Pega as redes sociais do usuário usando o banco de dados do Google e cria um link para a rede social.
+
             var socialList = ''
             if (Object.keys(userData.social).length > 0) {
                 socialList = '<ul class="social-list">'
                 for (const social in userData.social) {
-                    socialList += `<li><a href="${userData.social[social]}" target="_blank">${social}</a></li>`
+                    socialList += `<li><a href="${userData.social[social]}" target="_blank"><i class="fa-brands fa-fw fa-${social.toLowerCase()}"></i> ${social}</a></li>`
                 }
                 socialList += '</ul>'
             }
-            // Obtém os dados específicos do autor, através dp login social.
+
+
             $('#artMetadata').html(`<span>Por ${userData.name}</span><span>em ${myDate.sysToBr(artData.date)}.</span>`)
             $('#artAuthor').html(`
                 <img src="${userData.photo}" alt="${userData.name}">
@@ -61,31 +50,26 @@ function getAuthorData(artData) {
                 ${socialList}
             `)
         })
-        // Caso o usuário não tenha login.
         .fail((error) => {
             console.error(error)
             loadpage('e404')
         })
 }
-// Pega os artigos do autor.
+
 function getAuthorArticles(artData, limit) {
- // Busca os artigos na API 
+
     $.get(app.apiBaseURL + 'articles', {
-
         author: artData.author,
-// Artigos cujo o status seja ON.
         status: 'on',
-
         id_ne: artData.id,
-        // limite de artigos
-        _limit: limit
+        _limit: limit || 5
     })
         .done((artsData) => {
             if (artsData.length > 0) {
                 var output = '<h3><i class="fa-solid fa-plus fa-fw"></i> Artigos</h3><ul>'
                 var rndData = artsData.sort(() => Math.random() - 0.5)
                 rndData.forEach((artItem) => {
-                    output += `<li class="art-item" data-id="${artItem.id}">${artItem.title}</li>`
+                    output += `<li class="article" data-id="${artItem.id}">${artItem.title}</li>`
                 });
                 output += '</ul>'
                 $('#authorArtcicles').html(output)
@@ -97,7 +81,7 @@ function getAuthorArticles(artData, limit) {
         })
 
 }
-// Pega todos os comentários do artigo.
+
 function getArticleComments(artData, limit) {
 
     var commentList = ''
@@ -107,7 +91,7 @@ function getArticleComments(artData, limit) {
         status: 'on',
         _sort: 'date',
         _order: 'desc',
-        _limit: limit
+        _limit: limit || 999
     })
         .done((cmtData) => {
             if (cmtData.length > 0) {
@@ -136,7 +120,7 @@ function getArticleComments(artData, limit) {
         })
 
 }
-// Gera um formulário para o usuário caso esteja logado.
+
 function getUserCommentForm(artData) {
 
     var cmtForm = ''
@@ -146,7 +130,7 @@ function getUserCommentForm(artData) {
             cmtForm = `
                 <div class="cmtUser">Comentando como <em>${user.displayName}</em>:</div>
                 <form method="post" id="formComment" name="formComment">
-                    <textarea name="txtContent" id="txtContent">Comentário fake para testes</textarea>
+                    <textarea name="txtContent" id="txtContent"></textarea>
                     <button type="submit">Enviar</button>
                 </form>
             `
@@ -161,7 +145,7 @@ function getUserCommentForm(artData) {
     })
 
 }
-// Envia o comentário usando os dados.
+
 function sendComment(event, artData, userData) {
 
     event.preventDefault()
@@ -172,7 +156,6 @@ function sendComment(event, artData, userData) {
     const today = new Date()
     sysdate = today.toISOString().replace('T', ' ').split('.')[0]
 
-    // Busca na API os comentários deste artigo
     $.get(app.apiBaseURL + 'comments', {
         uid: userData.uid,
         content: content,
@@ -180,7 +163,6 @@ function sendComment(event, artData, userData) {
     })
         .done((data) => {
             if (data.length > 0) {
-                // Cria um PopUp e indica quando um comentário com a mesma mensagem já foi enviado.
                 popUp({ type: 'error', text: 'Ooops! Este comentário já foi enviado antes...' })
                 return false
             } else {
@@ -211,9 +193,8 @@ function sendComment(event, artData, userData) {
         })
 
 }
-// Função que atualiza a contagem de views.
+
 function updateViews(artData) {
-    // Jquary faz uma requisição 
     $.ajax({
         type: 'PATCH',
         url: app.apiBaseURL + 'articles/' + artData.id,
