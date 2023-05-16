@@ -164,7 +164,9 @@ function routerLink() {
      *  • https://www.w3schools.com/jquery/jquery_syntax.asp
      **/
     var href = $(this).attr('href').trim().toLowerCase()
-
+if (href == "#top") {
+        window.scrollTo(0, 0);
+    }
     /**
      * Se clicou em um link externo (http://... OU https://...) ou em uma 
      * âncora (#...),devolve o controle da página para o navegador (return true) 
@@ -187,9 +189,7 @@ function routerLink() {
     )
         // Devolve o controle para o HTML.
         return true
-    if (href.substring(0, 1) == '#') {
-        window.scrollTo(0, 0);
-    }
+    
     /**
      * Se clicou no link para 'login', executa a função de login.
      */
